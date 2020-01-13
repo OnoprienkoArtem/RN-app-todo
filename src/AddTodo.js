@@ -1,15 +1,28 @@
-import React from 'react';
-import { StyleSheet, View, TextInput, Button } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, TextInput, Button, Alert } from 'react-native';
 
-export const AddTodo = ({onSubmit}) => {
+export const AddTodo = ({ onSubmit }) => {
+    const [value, setValue] = useState('');
+
     const pressHandler = () => {
-        onSubmit('wrefew');
+        if (value.trim()) {
+            onSubmit(value);
+            setValue('');
+        } else {
+            Alert.alert('Empty input!');
+        }
+      
     }
 
     return (
         <View style={styles.block}>
-            <TextInput style={styles.input} />
-            <Button style={styles.button} title="Add" onPress={pressHandler} />
+            <TextInput
+                style={styles.input}
+                onChangeText={text => setValue(text)}
+                value={value}
+                placeholder='todo text'
+            />
+            <Button title='Add' onPress={pressHandler} />
         </View>
     );
 }
@@ -27,8 +40,5 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderBottomWidth: 2,
         borderBottomColor: '#3949ab'
-    },
-    button: {
-
     }
 });

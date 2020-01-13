@@ -9,8 +9,6 @@ export const Navbar = (props) => {
     );
 }
 
-
-
 const styles = StyleSheet.create({
     navbar: {
         height: 70,

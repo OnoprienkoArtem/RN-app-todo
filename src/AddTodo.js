@@ -1,12 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, TextInput, Button } from 'react-native';
 
-export const AddTodo = (onSubmit) => {
-
+export const AddTodo = ({onSubmit}) => {
     const pressHandler = () => {
-        onSubmit('');
+        onSubmit('wrefew');
     }
-
 
     return (
         <View style={styles.block}>
@@ -16,13 +14,12 @@ export const AddTodo = (onSubmit) => {
     );
 }
 
-
-
 const styles = StyleSheet.create({
     block: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: 10
     },
     input: {
         width: '80%',

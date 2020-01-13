@@ -10,8 +10,7 @@ export const AddTodo = ({ onSubmit }) => {
             setValue('');
         } else {
             Alert.alert('Empty input!');
-        }
-      
+        }      
     }
 
     return (
@@ -21,6 +20,8 @@ export const AddTodo = ({ onSubmit }) => {
                 onChangeText={text => setValue(text)}
                 value={value}
                 placeholder='todo text'
+                autoCorrect={false}
+                autoCapitalize='none'
             />
             <Button title='Add' onPress={pressHandler} />
         </View>

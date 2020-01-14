@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
-export const TodoScreen = () => {
+export const TodoScreen = ({goBack, todo}) => {
     return (
         <View>
-            <Text>Todo Screen</Text>
+            <Text>{todo.textTodo}</Text>
+            <Button title='Back' onPress={goBack}></Button>
         </View>
     );
 }

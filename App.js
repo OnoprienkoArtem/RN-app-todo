@@ -9,8 +9,8 @@ import { TodoScreen } from './src/screens/TodoScreen';
 export default function App() {
   const [todoId, setTodoId] = useState('1');
   const [todos, setTodos] = useState([
-    {id: '1', textTodo: 'Выучить React Native'},
-    {id: '2', textTodo: 'написать приложение'}
+    { id: '1', textTodo: 'Выучить React Native' },
+    { id: '2', textTodo: 'написать приложение' }
   ]);
 
   const addTodo = textTodo => {
@@ -24,22 +24,26 @@ export default function App() {
   }
 
   const removeTodo = id => {
-    const todo = todos.find(t => t.is === id);
+    const todo = todos.find(t => t.id === id);
     Alert.alert(
       'Remove todo item',
-      `Are you sure, you want to delete ${todo.textTodo}?`,
+      `Are you sure, you want to delete '${todo.textTodo}'?`,
       [
-        {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
         {
           text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
           style: 'cancel',
         },
-        {text: 'OK', onPress: () => console.log('OK Pressed')},
+        {
+          text: 'Remove',
+          onPress: () => {
+            setTodoId(null);
+            setTodos(prev => prev.filter(todo => todo.id !== id))
+          }
+        },
       ],
-      {cancelable: false},
+      { cancelable: false },
     );
-    setTodos(prev => prev.filter(todo => todo.id !== id))
+    
   }
 
   let content = (
@@ -55,7 +59,7 @@ export default function App() {
 
   if (todoId) {
     const selectedTodo = todos.find(todo => todo.id === todoId)
-    content = <TodoScreen goBack={() => setTodoId(null)} todo={selectedTodo} />
+    content = <TodoScreen onRemove={removeTodo} goBack={() => setTodoId(null)} todo={selectedTodo} />
   }
 
   return (

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TextInput, Button, Alert } from 'react-native';
+import { StyleSheet, View, TextInput, Alert, Keyboard } from 'react-native';
 import { THEME } from '../theme';
+import { Entypo } from '@expo/vector-icons';
 
 export const AddTodo = ({ onSubmit }) => {
     const [value, setValue] = useState('');
@@ -9,6 +10,7 @@ export const AddTodo = ({ onSubmit }) => {
         if (value.trim()) {
             onSubmit(value);
             setValue('');
+            Keyboard.dismiss();
         } else {
             Alert.alert('Empty input!');
         }      
@@ -24,7 +26,7 @@ export const AddTodo = ({ onSubmit }) => {
                 autoCorrect={false}
                 autoCapitalize='none'
             />
-            <Button title='Add' onPress={pressHandler} />
+            <Entypo.Button onPress={pressHandler} name='add-to-list'>Add</Entypo.Button>
         </View>
     );
 }
@@ -37,7 +39,7 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     input: {
-        width: '80%',
+        width: '70%',
         padding: 10,
         borderStyle: 'solid',
         borderBottomWidth: 2,

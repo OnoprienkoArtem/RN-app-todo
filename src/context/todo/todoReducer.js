@@ -7,7 +7,7 @@ export const todoReducer = (state, action) => {
                 ...state,
                 todos: [...state.todos, {
                     id: Date.now().toString(),
-                    textTodo: action.title
+                    title: action.title
                 }]
             };
         case REMOVE_TODO:

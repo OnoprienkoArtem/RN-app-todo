@@ -18,13 +18,13 @@ export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
     return (
         <View>
             <EditModal
-                value={todo.textTodo}
+                value={todo.title}
                 visible={modal}
                 onCancel={() => setModal(false)}
                 onSave={saveHandler}
             />
             <AppCard style={styles.card}>
-                <AppTextBold style={styles.title}>{todo.textTodo}</AppTextBold>
+                <AppTextBold style={styles.title}>{todo.title}</AppTextBold>
                 <AppButton title='Edit' onPress={() => setModal(true)}>
                     <FontAwesome name='edit' size={20} />
                 </AppButton>

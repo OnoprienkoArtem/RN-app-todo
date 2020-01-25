@@ -7,55 +7,8 @@ import { TodoScreen } from './screens/TodoScreen';
 import { TodoContext } from './context/todo/todoContext';
 import { ScreenContext } from './context/screen/screenContext';
 
-export const MainLayout = () => {
-   
+export const MainLayout = () => {   
     const { todoId } = useContext(ScreenContext);
-    // const [todoId, setTodoId] = useState(null);
-    // const [todos, setTodos] = useState([]);
-
-    // const addTodo = title => {
-    //     setTodos(prev => [
-    //         ...prev,
-    //         {
-    //             id: Date.now().toString(),
-    //             title
-    //         }
-    //     ])
-    // }
-
-    // const removeTodo = id => {
-    //     const todo = todos.find(t => t.id === id);
-    //     Alert.alert(
-    //         'Remove todo item',
-    //         `Are you sure, you want to delete '${todo.title}'?`,
-    //         [
-    //             {
-    //                 text: 'Cancel',
-    //                 style: 'cancel',
-    //             },
-    //             {
-    //                 text: 'Remove',
-    //                 onPress: () => {
-    //                     setTodoId(null);
-    //                     setTodos(prev => prev.filter(todo => todo.id !== id))
-    //                 }
-    //             },
-    //         ],
-    //         { cancelable: false },
-    //     );
-    // }
-
-    // const updateTodo = (id, title) => {
-    //     setTodos(old =>
-    //         old.map(todo => {
-    //             if (todo.id === id) {
-    //                 todo.title = title
-    //             }
-    //             return todo;
-    //         })
-    //     )
-    // }
-
     
     return (
         <View>

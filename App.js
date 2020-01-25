@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import { MainLayout } from './src/MainLayout';
+import { ScreenState } from './src/context/screen/ScreenState';
 import { TodoState } from './src/context/todo/TodoState';
 
 async function loadApplication() {
@@ -14,7 +15,7 @@ async function loadApplication() {
 
 export default function App() {
   const [isReady, setIsReady] = useState(false);
-  
+
 
   if (!isReady) {
     return (
@@ -28,8 +29,10 @@ export default function App() {
 
   return (
     <TodoState>
-      <MainLayout/>
-    </TodoState>    
+      <TodoState>
+        <MainLayout />
+      </TodoState>
+    </TodoState>
   );
 }
 

@@ -28,11 +28,11 @@ export default function App() {
   }
 
   return (
-    <TodoState>
+    <ScreenState>
       <TodoState>
         <MainLayout />
       </TodoState>
-    </TodoState>
+    </ScreenState>
   );
 }
 

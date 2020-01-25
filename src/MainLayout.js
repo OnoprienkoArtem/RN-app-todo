@@ -5,9 +5,11 @@ import { Navbar } from './components/Navbar';
 import { MainScreen } from './screens/MainScreen';
 import { TodoScreen } from './screens/TodoScreen';
 import { TodoContext } from './context/todo/todoContext';
+import { ScreenContext } from './context/screen/screenContext';
 
 export const MainLayout = () => {
     const { todos, addTodo, removeTodo, updateTodo } = useContext(TodoContext);
+    const { todoId, changeScreen } = useContext(ScreenContext);
     // const [todoId, setTodoId] = useState(null);
     // const [todos, setTodos] = useState([]);
 
@@ -59,9 +61,7 @@ export const MainLayout = () => {
             todos={todos}
             addTodo={addTodo}
             removeTodo={removeTodo}
-            openTodo={id => {
-                setTodoId(id);
-            }}
+            openTodo={changeScreen}
         />
     );
 
@@ -70,7 +70,7 @@ export const MainLayout = () => {
         content = (
             <TodoScreen
                 onRemove={removeTodo}
-                goBack={() => setTodoId(null)}
+                goBack={() => changeScreen(null)}
                 todo={selectedTodo}
                 onSave={updateTodo}
             />

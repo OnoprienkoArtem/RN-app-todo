@@ -7,13 +7,15 @@ import { TodoScreen } from './screens/TodoScreen';
 import { TodoContext } from './context/todo/todoContext';
 import { ScreenContext } from './context/screen/screenContext';
 
-export const MainLayout = () => {   
+export const MainLayout = () => {
     const { todoId } = useContext(ScreenContext);
-    
+
     return (
         <View>
             <Navbar title="Todo App" />
-            <View style={styles.container}>{ todoId ? <TodoScreen/> : <MainScreen/> }</View>
+            <View style={styles.container}>
+                {todoId ? <TodoScreen /> : <MainScreen />}
+            </View>
         </View>
     );
 }

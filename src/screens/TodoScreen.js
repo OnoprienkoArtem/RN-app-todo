@@ -1,6 +1,6 @@
 import React, { useState, useContext,  } from 'react';
 import { StyleSheet, View, Button, Dimensions } from 'react-native';
-import { Entypo, FontAwesome, AntDesign } from '@expo/vector-icons';
+import { FontAwesome, AntDesign } from '@expo/vector-icons';
 import { THEME } from '../theme';
 import { AppCard } from '../components/ui/AppCard';
 import { EditModal } from '../components/EditModal';
@@ -37,7 +37,7 @@ export const TodoScreen = () => {
             </AppCard>
             <View style={styles.buttons}>
                 <View style={styles.button}>
-                    <AppButton color={THEME.GREY_COLOR} onPress={changeScreen(null)}>
+                    <AppButton color={THEME.GREY_COLOR} onPress={() => changeScreen(null)}>
                         <AntDesign name='back' size={20} color='#fff' />
                     </AppButton>
                 </View>
